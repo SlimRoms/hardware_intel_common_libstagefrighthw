@@ -24,6 +24,8 @@ LOCAL_C_INCLUDES:= \
         $(call include-path-for, frameworks-native)/media/hardware \
         $(call include-path-for, frameworks-native)/media/openmax
 
+LOCAL_C_INCLUDES += $(TARGET_OUT_INTERMEDIATES)/KERNEL_OBJ/usr/include
+
 LOCAL_SHARED_LIBRARIES :=       \
         libbinder               \
         libutils                \
@@ -32,6 +34,8 @@ LOCAL_SHARED_LIBRARIES :=       \
         libstagefright_foundation
 
 LOCAL_MODULE := libstagefrighthw
+
+LOCAL_ADDITIONAL_DEPENDENCIES := $(TARGET_OUT_INTERMEDIATES)/KERNEL_OBJ/usr
 
 include $(BUILD_SHARED_LIBRARY)
 endif
